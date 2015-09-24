@@ -3,6 +3,7 @@
 <head>
 </head>
 <body>
+	<h1>Enter the order</h1>
 	<form action="order" method="post">
 		<input type="text" value="" name="email" placeholder="email">
 		<br>

@@ -2,7 +2,6 @@
 class Order extends Eloquent{
 	public $timestamps = true;
     public static function addOrder($input){
-    	//$convert_date = date("Y-m-d", strtotime(time()));
            	$order_id = DB::table('orders')->insertGetId(
 			    ['email_id' => $input['email'], 'status' => 'created']
 			);
@@ -13,7 +12,6 @@ class Order extends Eloquent{
     }
     public static function getOrder($id)
     {
-    	//$orderdetail = DB::table('orderitems')->select('name', 'price','quantity')->where('id','=',$id)->get();
     	$orderdetail = DB::table('orders')->join('orderitems', 'orders.id', '=', 'orderitems.order_id')->where('orders.id','=',$id)->get();
     	return $orderdetail;
     }

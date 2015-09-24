@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/create', function()
+Route::get('/', function()
 {
 	return View::make('create');
 });
 Route::post('/order/update','OrderController@updateOrder');
-Route::put('/order/{id}/cancel','OrderController@cancelOrder');
-Route::put('/order/{id}/payment','OrderController@paymentOrder');
+Route::any('/order/{id}/cancel','OrderController@cancelOrder');
+Route::any('/order/{id}/payment','OrderController@paymentOrder');
 Route::put('/order/{id}','OrderController@getFilledOrder');
 Route::get('order/today','OrderController@getTodayOrder');
 Route::get('order/{id}','OrderController@getOrder');
